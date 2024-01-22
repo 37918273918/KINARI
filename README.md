@@ -12,6 +12,6 @@
 
 ## Partial Run Results Display
 1. Overall display：
-  <img src="https://github.com/37918273918/KINARI/blob/main/overall.png" width="210px">
+  <img src="https://github.com/37918273918/KINARI/blob/main/overall.png" width="500px">
 2. Data analysis of this protein
    
