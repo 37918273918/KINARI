@@ -1,4 +1,4 @@
-# Karina
+# KINARI
 ## Environment settings
 1. flask ==2.0.3
 2. flask-cors==3.0.10
