@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.css" type="text/css">
+    <script type="text/javascript" src="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.js"></script>
+</head>
+<body>
+<script>
+    function alertMolecule(mol) {
+        let message = 'This molecule contains ' + mol.atoms.length + ' atoms and ' + mol.bonds.length + ' bonds.';
+        return message
+    }
+    let display3d = new ChemDoodle.TransformCanvas3D('display3d', 400, 400);
+    // set the 3D representation for ligand atoms
+    display3d.styles.set3DRepresentation('Wireframe');
+    display3d.styles.backgroundColor = 'black';
+    display3d.styles.macro_displayAtoms = true;
+    display3d.styles.macro_displayBonds = true;
+
+    ChemDoodle.io.file.content('../static/ChemDoodleWeb-9.5.0/data/molecules/1BNA.pdb', function(fileContent) {
+        let mol = ChemDoodle.readPDB(fileContent,1);
+        display3d.loadMolecule(mol);
+        var element = document.getElementById('element-info');
+
+// 调用alertMolecule函数
+        var molecule = alertMolecule(mol);
+
+// 修改字体大小
+        element.innerText = molecule;
+        element.style.fontSize = '24px'; // 修改为您想要的字体大小，可以是像素(px)、百分比(%)等单位
+
+    });
+</script>
+    <pre id="element-info"></pre>
+</body>
+
+</html>

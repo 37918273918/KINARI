@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.css" type="text/css">
+    <script type="text/javascript" src="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.js"></script>
+</head>
+<body>
+<div>
+<button style="margin-bottom: 20px;font-size:24px"  id="show-info-button">Calculate the atoms and bonds</button>
+</div>
+<div>
+<script>
+     function alertMolecule(mol) {
+        let message = 'This molecule contains ' + mol.atoms.length + ' atoms and ' + mol.bonds.length + ' bonds.';
+        return message
+    }
+       function displayMoleculeInfo() {
+        var molecule = alertMolecule(pdbStructure);
+        element.innerText = molecule;
+        element.style.fontSize = '24px';
+    }
+    let display3d = new ChemDoodle.TransformCanvas3D('display3d', 400, 400);
+    // set the 3D representation for ligand atoms
+    display3d.styles.set3DRepresentation('Ball and Stick');//van der Waals Spheres/Wireframe/Line/Stick
+    display3d.styles.backgroundColor = 'black';
+    display3d.styles.macro_displayAtoms = true;
+    display3d.styles.macro_displayBonds = true;
+    let  fileData = `{{ file_data|tojson }}`;
+    var fileExtension = "{{ file_extension }}";
+    if(fileExtension ==='pdb')
+    {
+        pdbStructure=ChemDoodle.readPDB(fileData,1);
+    }
+    if(fileExtension==='mol')
+    {
+        pdbStructure=ChemDoodle.readMOL(fileData,1);
+    }
+        // load the molecule into the Canvas
+    display3d.loadMolecule(pdbStructure);
+      var element = document.getElementById('show-info-button');
+    element.addEventListener('click', displayMoleculeInfo);
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+.mol-container {
+  width: 60%;
+  height: 400px;
+  position: relative;
+}
+</style>
+</head>
+<body>
+<h1>µ°°×ÖÊ</h1>
+<div id="container-01" class="mol-container"></div>
+<script>
+  let element = document.querySelector('#container-01');
+  let config = { backgroundColor: 'orange' };
+  let viewer = $3Dmol.createViewer( element, config );
+    viewer.setBackgroundColor('black');
+  let pdbUri = '../static/ChemDoodleWeb-9.5.0/data/molecules/1BNA.pdb';
+  jQuery.ajax( pdbUri, {
+    success: function(data) {
+      let v = viewer;
+      v.addModel( data, "pdb" );                       /* load data */
+      v.setStyle({}, {cartoon: {color: 'spectrum'}});  /* style all atoms */
+      v.zoomTo();                                      /* set camera */
+      v.render();                                      /* render scene */
+      v.zoom(1.2, 1000);                               /* slight zoom */
+    },
+    error: function(hdr, status, err) {
+      console.error( "Failed to load PDB " + pdbUri + ": " + err );
+    },
+  });
+</script>
+</body>
+</html>

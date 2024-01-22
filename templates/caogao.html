@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.css" type="text/css">
+    <script type="text/javascript" src="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.js"></script>
+<!--these two are required by the EditorCanvas3D plugin-->
+    <link rel="stylesheet" href="../static/jquery-ui-1.11.4.custom/jquery-ui-1.11.4.custom/jquery-ui.css" type="text/css">
+    <script type="text/javascript" src="../static/ChemDoodleWeb-9.5.0/install/uis/ChemDoodleWeb-uis.js"></script>
+</head>
+<body>
+   <script>
+  // initialized the EditorCanvas3D
+  let editor = new ChemDoodle.EditorCanvas3D('editor', 500, 300, {useServices:true});
+  // set the default representation to 'Ball and Stick'
+  editor.styles.set3DRepresentation('Ball and Stick');
+    ChemDoodle.io.file.content("../static/ChemDoodleWeb-9.5.0/data/molecules/cubane.mol",function (filecontent)
+    {
+        editor.repaint();
+        let mol=ChemDoodle.readMOL(filecontent)
+        editor.loadMolecule(mol)
+        let molFile = ChemDoodle.writeMOL(mol);
+        alert(molFile);
+    })
+
+  function alertMolecule(mol) {
+        let message = 'This molecule contains ' + mol.atoms.length + ' atoms and ' + mol.bonds.length + ' bonds.';
+        alert(message);
+    }
+  // if you changed the scene and need it rebuild, you may also want to call setupScene() which is commented out here
+  // editor.setupScene();
+  // however, you can instead use one of the Canvas.load... functions to pre-populate the canvas with content, then you don't need to call repaint
+  editor.repaint();
+</script>
+</body>
+</html>

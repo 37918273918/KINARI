@@ -1,0 +1,317 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <link rel="stylesheet" href="Site/Style/kinariStyle.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+      <link rel="stylesheet" href="Site/Style/kinariMenu.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+      <link rel="stylesheet" type="text/css" href="Site/Style/kinariMenuProposed.css" />
+      <link rel="stylesheet" type="text/css" href="Site/Style/kinariSubMenuTabs.css" />
+      <script type="text/javascript" src="Site/Js/kinariFunctions.js"></script>
+      <title>KINARI</title>
+
+      <!-- google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3659192-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+      </script>
+
+   </head>
+
+   <body onload="showDiv('1');">
+
+      <!-- container used to center content -->
+      <div id="container">
+
+         <!-- Place navigation menu -->         
+         <script src="Site/Js/navMenu.js" type="text/javascript" language="JavaScript"></script>
+
+         <!--
+         <div style="clear: both;"><br/></div>
+         -->
+
+         <div class="kinariwebblurb">
+            <p>KINARI is a suite of tools for calculating and analyzing
+               the rigidity and flexibility of biomolecules, developed in <a href=http://cs.smith.edu/~streinu>Ileana Streinu</a>'s research group, <a href=http://linkage.cs.umass.edu>LinkageLab</a>. To access the KINARI-Web
+               or KINARI-Mutagen tool, select that
+               application's tab and click on the "Access" button.
+               If you use KINARI for research that you publish, please cite:
+               <ul>
+                  <li>KINARI-Web: Naomi Fox, Filip Jagodzinski, Yang Li, Ileana Streinu.
+                     <a href="http://dx.doi.org/10.1093/nar/gkr482" target="_blank">KINARI-Web:
+                        A Server for Protein Rigidity Analysis</a>,
+                     <i>Nucleic Acids Research</i>, 39 (Web Server Issue), 2011.</li>
+                  <li>KINARI-Mutagen: Filip Jagodzinski, Jeanne Hardy, and Ileana Streinu.
+                     <strong>Using Rigidity Analysis to Probe Mutation-Induced Structural Changes in Proteins</strong>,
+                     <i>Journal of Bioinformatics and Computational Biology</i>, Vol. 10, No. 3, 2012.</li>
+               </ul>
+            </p>
+         </div>
+
+         <ul id="tabnav">
+            <li class="tab1"><a href="#" onclick="showDiv('1')">KINARI-Web</a></li>
+            <li class="tab2"><a href="#" onclick="showDiv('2')">KINARI-Mutagen</a></li>
+         </ul>
+
+         <div style="position:relative; min-height: 270px;">
+            <div id='div1' style='position:absolute; display: inline-block; width: inherit;'>
+
+               <div id="appBox" style="overflow: hidden;">
+
+                  <div style="font-weight: bold; font-size: 1.2em; text-align: left;">&nbsp;Curate a PDB file, analyze its rigidity,
+                     and Visualize the Results</div>
+                  <div style="width: 800px; float: left; display: block; margin-left: 4px;">
+                     <div class="appBoxUnitTwo" style="height: inherit; width: 98%;">
+
+                        <div style="font-size:1.0em; color:#F60; margin-bottom: -5px;">Description</div><hr/>
+
+                        <img style="float: right;" width="220" alt="Rigidity Results lysozyme 2LZM"
+                             src="Site/Figures/ApplicationsPics/2lzm140x105.png"/>
+
+                        <p>KINARI-Web performs rigidity analysis of a protein, and provides a Jmol-based
+                           visualizer to explore the results. The protein can be curated prior to the analysis using our tools.
+                           The rigid regions of lysozyme from Bacteriophage T4
+                           are shown on the right. </p>
+                        <p>
+                           The curation, rigidity analysis, and
+                           visualizer tools in KINARI can also be
+                           used as stand-alone applications via the
+                           tabs above. Video tutorials and help/documentation
+                           are available for each application.</p>
+                        <p>
+                           A <b>Quick-Start</b> option performs a streamlined curation and analysis using default
+                           paramters. For <b>Advanced Users</b>, the whole functionality of each individual
+                           application is available to retain desired chains or ligands,
+                           add or remove stabilizing constraints,
+                           add hydrogen atoms, and set modeling options.</p>
+                        <div>
+                           <form method="post" name="kinariWeb"
+                                 action="Site/kinariWeb.html">
+                              <div id="advancedUserButtons" style="font-size: 0.9em;">
+                                 <input type="submit"
+                                        value="Access KINARI-Web" />
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>                
+               </div>
+            </div>
+
+            <div id='div2' style='position:absolute; display: inline-block; width: inherit;'>
+
+               <div id="appBox" style="overflow: hidden;">
+                  <div style="font-weight: bold; font-size: 1.2em; text-align: left;">&nbsp;Generate <i>in-silico</i> mutants of a protein
+                     from a PDB file, and analyze their rigidity.</div>
+                  <div style="width: 800px; float: left; display: block; margin-left: 4px;">
+                     <div class="appBoxUnitTwo" style="height: inherit; width: 98%;">
+
+                        <div style="font-size:1.0em; color:#F60; margin-bottom: -5px;">Description</div><hr/>
+
+                        <img style="float: right;" width="250" alt="KINARI-Mutagen 1HHP"
+                             src="Site/Figures/ApplicationsPics/mutagen1HHP.png"/>
+
+                        <p>KINARI-Mutagen performs <i>in silico</i> mutation experiments
+                           on protein structures from the Protein Data Bank, and analyzes their
+                           rigidity. A Jmol-scripted embedded visualizer displays the rigidity
+                           results for each mutant, and several plots are generated to help the user
+                           determine which mutation affected most the protein's rigidity. Residues whose
+                           mutation affects the rigidity of the protein can be inferred to be critical.
+                        </p>
+                        <p>To generate a mutation at a user-specified residue, KINARI-Mutagen
+                           removes hydrogen bonds and hydrophobic interactions from the protein's molecular
+                           model. We call this an <b>excision</b>, and it is structurally equivalent
+                           to substituting a residue to a glycine.
+                        </p>
+                        <div>
+                           <form method="post" name="kinariMutagen"
+                                 action="../Applications/KINARIMutagenWeb">
+                              <div id="advancedUserButtons" style="font-size: 0.9em;">
+                                 <input type="submit"
+                                        value="Access KINARI-Mutagen" />
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div id='div3' style='position:absolute; display: inline-block; width: inherit;'>
+
+               <div id="appBox" style="overflow: hidden;">
+                  <div style="font-weight: bold; font-size: 1.2em; text-align: left;">Calculate the Rigid Regions of a Protein</div>
+                  <div style="width: 533px; float: left; display: block; margin-left: 4px;">
+                     <div class="appBoxUnitTwo" style="height: inherit;">
+
+                        <div style="font-size:1.0em; color:#F60; margin-bottom: -5px;">Description</div><hr/>
+
+                        <img style="float: right;" width="140" alt="KINARI molecular modeling"
+                             src="Site/Figures/ApplicationsPics/rigidity140x169.png"/>
+
+                        <p>KINARI-Rigidity models proteins as a body-bar-hinge framework.
+                           An efficient combinatorial pebble game algorithm
+                           is used to analyze the associated graph of the molecular
+                           model, to infer flexibile regions of the biomolecule.</p>
+
+                        <p>The body-bar-hinge framework is based on a concept of rigid bodies, 
+                           with varying degrees of freedom between them.
+                           If pair-wise distances between atoms are determined
+                           by the existing covalent bond length and angle constraints,
+                           then the atoms are placed into a single rigid body.  Along
+                           the protein's backbone (shown right, top), peptide units
+                           are modeled as rigid bodies (right, bottom). The <b>Advanced Users</b> options
+                           are used to designate how each chemical constraint should be modeled.</p>
+                        <p></p>
+                     </div>
+                  </div>
+
+                  <div style="width: 275px; float: right; margin-right: 0px">
+
+                     <div class="appBoxUnit">
+                        <div class="appBoxTitle">Advanced Users</div><hr/>
+                        <p>Use the advanced feature to specify how chemical
+                           constraints should be modeled.</p>
+
+                        <form method="post" name="runKINARIWeb2"
+                              action="../Applications/KINARIRigidityWeb">
+                           <div id="advancedUserButtons" style="font-size: 0.9em;">
+                              <input type="submit"
+                                     value="Use Advanced Features" onClick="ShowContent('loadingKinari2')" />
+                              <span id="loadingKinari2" style="display:none">
+                                 <img src="Site/Figures/loading-bar.gif" alt="loadingBarImage" />
+                              </span>
+                           </div>
+                        </form>
+                        <div class="appHelpTabs">
+
+                           <ul>
+                              <li>
+                                 <a href="#" onclick="window.open('Videos/rigidityAnalysisVideo.html',
+                                    '_blank',
+                                    'menubar=no,toolbar=no,location=no,scrollbars=yes,resizable=yes,width=970,height=710');"
+                                    id="openVisualizer"
+                                    class="appHelp">
+                                    Video Tutorial
+                                 </a>
+                              </li>
+                              <li>
+
+                                 <a href="#" onclick="window.open('Help/rigidityAnalysisAdvancedHelp.html',
+                                    '_blank',
+                                    'menubar=no,toolbar=no,location=no,scrollbars=yes,resizable=yes,width=1024,height=750');"
+                                    id="openVisualizer"
+                                    class="videotutorial">
+                                    Advanced Help
+                                 </a>
+                              </li>
+
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+
+            <div id='div4' style='position:absolute; display: inline-block; width: inherit;'>
+
+               <div id="appBox" style="overflow: hidden;">
+                  <div style="font-weight: bold; font-size: 1.2em; text-align: left;">Explore the Rigid Regions of a Protein using a Jmol-based Visualizer</div>
+                  <div style="width: 533px; float: left; display: block; margin-left: 4px;">
+                     <div class="appBoxUnitTwo" style="height: inherit;">
+
+                        <div style="font-size:1.0em; color:#F60; margin-bottom: -5px;">Description</div><hr/>
+
+                        <img style="float: right;" width="210" alt="KINARI molecular visualizer"
+                             src="Site/Figures/ApplicationsPics/visualizer210x129.png"/>
+
+                        <p>Use the KINARI-Visualizer tool to zoom in on, select,
+                           highlight, or hide from view different rigidity properties
+                           of a protein. Hydrogen bonds and hydrophobic interactions
+                           can be displayed, along with detected
+                           hinge axes and rigid clusters.</p>
+                        <p>A hydrogen bond (green) as well as a hinge among two bodies, are
+                           shown in the image on the near-right. Two rigid clusters (colored pink
+                           and purple) are selected and shown in the image on the far-right, while
+                           the other parts of the protein are displayed in gray.</p>
+
+
+                     </div>
+                  </div>
+
+                  <div style="width: 275px; float: right; margin-right: 0px">
+                     <div class="appBoxUnit">
+                        <div class="appBoxTitle">Advanced Users</div><hr/>
+                        <p>Select largest bodies, view and highlight hinge regions, display constraints, etc.</p>
+
+                        <form method="post" name="runKINARIWeb2"
+                              action="../Applications/KINARIWebVisualizer">
+                           <div id="advancedUserButtons" style="font-size: 0.9em;">
+
+                              <input type="submit"
+                                     value="Access KINARI Visualizer" onClick="ShowContent('loadingKinari2')" />
+                              <span id="loadingKinari2" style="display:none">
+                                 <img src="Site/Figures/loading-bar.gif" alt="loadingBarImage" />
+                              </span>
+
+                           </div>
+                        </form>
+                        <div class="appHelpTabs">
+
+                           <ul>
+                              <li>
+                                 <a href="#" onclick="window.open('Videos/visualizerVideo.html',
+                                    '_blank',
+                                    'menubar=no,toolbar=no,location=no,scrollbars=yes,resizable=yes,width=930,height=830');"
+                                    id="openVisualizer"
+                                    class="appHelp">
+                                    Video Tutorial
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="#" onclick="window.open('Help/visualizerAdvancedHelp.html',
+                                    '_blank',
+                                    'menubar=no,toolbar=no,location=no,scrollbars=yes,resizable=yes,width=1024,height=750');"
+                                    id="openVisualizer"
+                                    class="videotutorial">
+                                    Advanced Help
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <p> See related <a href="Site/publications.html">publications</a>,
+            <a href="Site/casestudies.html">case studies</a>, and
+            <a href="Site/profiling.html">profiling</a> information.
+            Check the <a href="Site/requirements.html">requirements</a> for
+            supported browsers and platforms.  Submit questions and comments
+            with the <a href="Site/feedback.html">feedback</a> form.
+         </p>
+
+         <!-- The following comment line places the footer funding box.-->
+         <!-- This is used on every KINARI website page-->
+         <div style='display: inline-block; width: inherit;'>
+            <script src="Site/Js/fundingBox.js" type="text/javascript"
+                    language="JavaScript"></script>
+         </div>
+      </div> <!-- end "container" -->
+
+   </body>
+</html>
+
+

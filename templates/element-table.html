@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.css" type="text/css">
+  <script type="text/javascript" src="../static/ChemDoodleWeb-9.5.0/install/ChemDoodleWeb.js"></script>
+</head>
+<body>
+
+<script>
+    let periodicTable = new ChemDoodle.PeriodicTableCanvas('pt', 20);
+    periodicTable.click = function(evt){
+        if(this.hovered!=null){
+            let e = this.getHoveredElement();
+            let sb = [];
+            sb.push('Element: '+e.name+'\n');
+            sb.push('Symbol: '+e.symbol+'\n');
+            sb.push('Atomic Number: '+e.atomicNumber+'\n');
+            sb.push('Covalent Radius: '+e.covalentRadius+'\u212B\n');
+            sb.push('vdW Radius: '+e.vdWRadius+'\u212B\n');
+            document.getElementById('element-info').innerText = sb.join('');
+        }
+    }
+    periodicTable.repaint();
+
+</script>
+<pre id="element-info"></pre>
+</body>
+</html>

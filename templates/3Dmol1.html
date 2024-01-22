@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Dmol.js Test</title>
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+</head>
+<body>
+    <div id="mol_viewer" style="width: 400px; height: 400px;"></div>
+
+    <script>
+        const pdbData = `
+        ATOM      1  N   ALA A  16      26.293 -12.866  27.330  1.00 18.66           N
+        ATOM      2  CA  ALA A  16      26.682 -11.531  26.840  1.00 14.87           C
+        ATOM      3  C   ALA A  16      27.889 -10.888  27.557  1.00 15.04           C
+        ATOM      4  O   ALA A  16      28.162  -9.752  27.215  1.00 17.88           O
+        ATOM      5  CB  ALA A  16      25.575 -10.684  26.165  1.00 14.95           C
+        ATOM      6  N   GLU A  17      28.502 -11.611  28.747  1.00 14.63           N
+        ATOM      7  CA  GLU A  17      29.645 -11.219  29.491  1.00 15.51           C
+        ATOM      8  C   GLU A  17      30.942 -11.742  28.736  1.00 14.52           C
+        ATOM      9  O   GLU A  17      30.731 -12.299  27.780  1.00 16.66           O
+        ATOM     10  CB  GLU A  17      29.604 -11.985  30.504  1.00 17.61           C
+        `;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            try {
+                const viewer = $3Dmol.createViewer("mol_viewer", { backgroundColor: "black" });
+                viewer.addModel(pdbData, "pdb");
+                viewer.zoomTo();
+                const atomIds=[1,2,3,4,5,6,7,8]
+
+
+                const sphereRadius = 0.5;
+
+
+                  atomIds.forEach((atomId) => {
+            const atom = viewer.selectedAtoms({ serial: atomId })[0];
+            viewer.addSurface($3Dmol.SurfaceType.VDW, {
+                atoms: [atom],
+                radius: sphereRadius,
+                colorscheme: "redCarbon",
+                opacity: 0.9,
+            });
+        });
+
+            } catch (error) {
+                console.error("Error rendering PDB data:", error);
+            }
+        });
+    </script>
+</body>
+</html>
