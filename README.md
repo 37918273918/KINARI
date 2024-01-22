@@ -11,7 +11,7 @@
 4. npm run serve
 
 ## Partial Run Results Display
-1. Data analysis of this protein
-   ![Uploading GK%{FMROIIA7%FPGZDS$Y`V.png…]()
-
-3. 
+1. Overall display：
+   <img src="[https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/course.jpg](https://github.com/37918273918/KINARI/blob/main/overall.png)https://github.com/37918273918/KINARI/blob/main/overall.png" width="210px">
+2. Data analysis of this protein
+   
